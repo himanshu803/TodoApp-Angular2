@@ -1,0 +1,35 @@
+<a [routerLink]="['/support']">Comment</a>
+<h1>{{name}}</h1>
+<p><b>Email: </b>{{email}}</p>
+<p><b>Address: </b> {{address.street}} {{address.city}}</p>
+
+<button (click)="toggleHobbies()">{{showHobbies ? "Hide Hobbies" : "Show Hobbies"}}</button>
+<div *ngIf="showHobbies">
+  <h3>Hobbies</h3>
+  <ul>
+    <li *ngFor="let hobby of hobbies; let i = index">
+      {{hobby}} <button (click)="deleteHobby(i)">X</button>
+    </li>
+  </ul>
+  <b>Add Hobby: </b>
+  <input type="text" #hobby />
+  <button (click)="addHobby(hobby.value)">Add</button>
+</div>
+<h1>Edit User</h1>
+<form>
+  <b>Name: </b>
+  <input type="text" name="name" [(ngModel)]="name" /><br />
+  <b>Email: </b>
+  <input type="text" name="email" [(ngModel)]="email" /><br />
+  <b>Street: </b>
+  <input type="text" name="address.street" [(ngModel)]="address.street" /><br />
+  <b>City: </b>
+  <input type="text" name="address.city" [(ngModel)]="address.city" />
+</form>
+<hr>
+<div *ngFor="let post of posts">
+  <h3>{{post.title}}</h3>
+  <p>{{post.body}}</p>
+</div>
+
+

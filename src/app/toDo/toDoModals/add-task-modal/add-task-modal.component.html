@@ -1,0 +1,46 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" (click)="close()" >&times;</button>
+    <h4 class="modal-title">{{title || 'Add Task'}}</h4>
+  </div>
+  <div class="modal-body">
+    <form action="" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-lg-2 control-label" for="task">Task:</label>
+        <div class="col-lg-10">
+          <textarea class="form-control" name="task" id="task" cols="30" rows="5" #task></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-lg-2 control-label" for="priority">Priority:</label>
+        <div class="col-lg-10">
+          <select name="priority" id="priority" class="form-control" #priority>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-lg-2 control-label" for="status">Status:</label>
+        <div class="col-lg-10">
+          <select name="status" id="status" class="form-control" #status>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="progress">In Progress</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-lg-2 control-label" for="assignedTo">Assigned By:</label>
+        <div class="col-lg-10">
+          <input type="text" id="assignedTo" class="form-control" #assignedTo>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="AddTask(task.value, priority.value, status.value, assignedTo.value)">Add Task</button>
+    <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
+  </div>
+</div>

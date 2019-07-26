@@ -1,0 +1,19 @@
+<todo-header></todo-header><br>
+<div class="row">
+  <table class="table">
+    <tr>
+      <th>S.No.</th>
+      <th>Task</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Assigned By</th>
+    </tr>
+    <tr *ngFor="let list of tasks; let i = index">
+      <td>{{i+1}}</td>
+      <td contenteditable='true'>{{ list.task }}</td>
+      <td>{{ list.priority }}</td>
+      <td>{{ list.status }}</td>
+      <td>{{ list.assignedTo }}</td>
+    </tr>
+  </table>
+</div>

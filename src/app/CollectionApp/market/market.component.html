@@ -1,0 +1,27 @@
+<app-header></app-header>
+<hr>
+<form>
+  <div class="input-group col-lg-5">
+    <span class="input-group-addon">Description</span>
+    <input type="text" class="form-control" name="description" #description>
+  </div>
+  <br>
+  <div class="input-group col-lg-5">
+    <span class="input-group-addon">Type</span>
+    <input type="text" class="form-control" name="type" #type>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="AddCollection(description.value , type.value)">Add Collection</button>
+</form>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of collectables">
+        <span class="badge">{{ item.type }}</span>
+        <button class="btn btn-success" (click)="onAddToCollection(item)">Add to Collection</button>
+        {{ item.description }}
+      </li>
+    </ul>
+  </div>
+</div>
